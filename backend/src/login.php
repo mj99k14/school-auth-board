@@ -14,7 +14,6 @@
      <label>비밀번호:<input type ="password" name="password"></label><br>
      <button type="submit">로그인</button>
      <button type="button" onclick="location.href='Register.php'">회원가입</button>
-   
     </form>
   </body>
 </html>
