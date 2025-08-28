@@ -18,7 +18,8 @@ if ($conn -> connect_error){
     
 }
 #비밀번호 아이디 공백확인
-$name_raw = trim($_POST["id"] ?? '');
+$name_raw = trim($_POST["name"] ?? '');
+
 $password_raw = trim($_POST["password"] ?? '');
 
 if($name_raw === '' || $password_raw === ''){
@@ -29,7 +30,7 @@ if($name_raw === '' || $password_raw === ''){
 
 
 #디비에서 체크하고 있으면보드 페이지로 이동
-$sql ="SELECT * FROM KMJ_USER WHERE id =? AND password =? ";
+$sql ="SELECT * FROM KMJ_USER WHERE username =? AND password =? ";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ss',$name_raw,$password_raw);
 $stmt->execute();
@@ -37,10 +38,11 @@ $result = $stmt->get_result();
 
 if($result->num_rows > 0){
     #없으면 회원등록이 필요하다고 알림 
-    $_SESSION["name"] = $name_raw;
+    $_SESSION["name"] = "반갑습니다! 게시판으로 이동~!";
     header("Location:board.php");
 }else{
     $_SESSION['error'] ="일치하는 정보가 없습니다";
+    echo  $_SESSION['error'] ;
     header("Location:Register.php");
 }
 

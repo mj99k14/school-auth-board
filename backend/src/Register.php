@@ -1,3 +1,7 @@
+<?php 
+    session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,7 @@
     <lable>이름:<input type ="text" name ="name"></lable><br>
     <lable>이메일:<input type="text" name ="email"></lable><br>
     <lable>비밀번호:<input type="password" name ="password"></lable><br>
-    <button type="button" onclick="location.href='board.php'">확인</button>
+    <button type="submit">확인</button>
     <button type="button" onclick="location.href='login.php'">뒤로가기</button>
 </body>
 </html>
