@@ -40,7 +40,7 @@
     <form  action="Edit_process.php" method ="post">
     <h2>수정</h2>
     <legend>수정</legend>
-        <input type="hidden" name="id" value="<?= htmlspecialchars($id) ?>">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
         <label for="title">제목:</label>
        <input type="text" id="title" name="title" value="<?= htmlspecialchars($row['title'] ?? '') ?>">
         <label for="name">이름:</label>

@@ -54,7 +54,5 @@
         <?php endwhile; ?>   
         <?php endif; ?>       
         <button type="button" onclick="location.href= 'create_post.php'">게시물 작성</button>
-    
-    
 </body>
 </html>

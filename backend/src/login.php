@@ -13,8 +13,6 @@
         echo "error 값: ".$_SESSION['error']."<br/>";
         unset($_SESSION['error']);
       }
-
-
     ?>
     <h1>로그인 페이지</h1>
     <form action="login_process.php" method ="post">
