@@ -17,6 +17,17 @@
     $stmt->bind_param('ii',$start,$end);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1;
+    $page_to_post = 5;
+    $total_page = ceil($num /  $end);
+    $limt_page = max($page,1);
+
+    $start_page = ($page - 1) * $page_to_post;
+    $sql = "select * from board KMJ_BOARD DESC limit $start_page, $page_to_post;";
+
+    $result = mysqli_query($db_conn, $sql);
+  $total = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +64,6 @@
         </tr>
         <?php endwhile; ?>   
         <?php endif; ?>       
-        <button type="button" onclick="location.href= 'create_post.php'">게시물 작성</button>
+     <button type="button" onclick="location.href= 'create_post.php'">게시물 작성</button>
 </body>
 </html>
